@@ -8,7 +8,7 @@ using TravelClient.Models;
 
 namespace TravelClient.Controllers
 {
-  public class LocationsController : Controllers
+  public class LocationsController : Controller
   {
     public IActionResult Index()
     {
@@ -39,7 +39,7 @@ namespace TravelClient.Controllers
     public IActionResult Details(int id, Location location)
     {
       location.LocationId = id;
-      Location.Put(Location);
+      Location.Put(location);
       return RedirectToAction("Details", id);
     }
 
