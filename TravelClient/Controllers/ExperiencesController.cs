@@ -5,9 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TravelClient.Models;
-using TravelClient.Models;
 
-namespace CretaceousClient.Controllers
+namespace TravelClient.Controllers
 {
   public class ExperiencesController : Controller
   {
@@ -44,7 +43,7 @@ namespace CretaceousClient.Controllers
       return RedirectToAction("Details", id);
     }
 
-    public InictionResult Delete(int id)
+    public IActionResult Delete(int id)
     {
       Experience.Delete(id);
       return RedirectToAction("Index");
