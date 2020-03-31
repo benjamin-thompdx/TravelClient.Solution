@@ -30,5 +30,21 @@ namespace TravelRating.Models
       return locationList;
     }
 
+    public static void Post(Location location)
+    {
+      string jsonLocation = JsonConvert.SerializeObject(location);
+      var apiCallTask = ApiHelper.Post(jsonLocation);
+    }
+
+    public static void Put(Location location)
+    {
+      string jsonLocation = JsonConvert.SerializeObject(location);
+      var apiCallTask = ApiHelper.Put(location.LocationId, jsonLocation);
+    }
+
+    public static void Delete(int id)
+    {
+      var apiCallTask = ApiHelper.Delete(id);
+    }
   }
 }
