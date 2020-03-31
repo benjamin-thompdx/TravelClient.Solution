@@ -1,16 +1,16 @@
-<h1>All Locations:</h1>
+<h1>All Experiences:</h1>
 
 <ol>
-@foreach (Location location in Model)
+@foreach (Experience experience in Model)
 {
   <ul>
-    <li>ID: @location.LocationId</li>
-    <li>Name: @location.Name</li>
-    <li>City: @location.City</li>
-    <li>Country: @location.Country</li>
-    <li>Experiences: @location.Experiences</li>
+    <li>ID: @experience.ExperienceId</li>
+    <li>Author: @experience.Author</li>
+    <li>Review: @experience.Review</li>
+    <li>Rating: @experience.Rating</li>
+    <li>LocationId: @experience.LocationId</li>
   </ul>
-  <a href="/Locations/Details/@(location.LocationId)"><p>View Details</p></a>
+  <a href="/Experiences/Details/@(experience.ExperienceId)"><p>View Details</p></a>
   <br>
 }
 </ol>
