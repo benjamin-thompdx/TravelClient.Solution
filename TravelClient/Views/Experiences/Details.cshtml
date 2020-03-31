@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TravelClient.Models.Experience
+
+<h1>Experience Details: </h1>
+
+<p>Author: @Model.Author</p>
+<p>Review: @Model.Review</p>
+<p>Rating: @Model.Rating</p>
+
+<a href="/Experiences/Edit/@(Model.ExperienceId)">Edit this entry</a>
+<br>
+<a href="/Experiences/Delete/@(Model.ExperienceId)">Delete this entry</a>

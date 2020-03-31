@@ -8,7 +8,8 @@
     <li>Name: @location.Name</li>
     <li>City: @location.City</li>
     <li>Country: @location.Country</li>
-    <ul>Experiences:
+    <li>Experiences:</li>
+    <ul>
       @foreach (Experience experience in @location.Experiences)
       {
         <li>@experience.Review</li> 
