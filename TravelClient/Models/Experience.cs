@@ -13,9 +13,9 @@ namespace TravelClient.Models
     public int Rating { get; set; }
     public int LocationId { get; set; }
 
-    public static List<Experience> GetExperiences()
+    public static List<Experience> Get()
     {
-      var apiCallTask = ApiHelper.GetAll();
+      var apiCallTask = ExperienceApiHelper.GetAll();
       var result = apiCallTask.Result;
 
       JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
@@ -26,7 +26,7 @@ namespace TravelClient.Models
 
     public static Experience GetDetails(int id)
     {
-      var apiCallTask = ApiHelper.Get(id);
+      var apiCallTask = ExperienceApiHelper.Get(id);
       var result = apiCallTask.Result;
 
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
@@ -38,18 +38,18 @@ namespace TravelClient.Models
     public static void Post(Experience experience)
     {
       string jsonExperience = JsonConvert.SerializeObject(experience);
-      var apiCallTask = ApiHelper.Post(jsonExperience);
+      var apiCallTask = ExperienceApiHelper.Post(jsonExperience);
     }
 
     public static void Put(Experience experience)
     {
       string jsonExperience = JsonConvert.SerializeObject(experience);
-      var apiCallTask = ApiHelper.Put(experience.ExperienceId, jsonExperience);
+      var apiCallTask = ExperienceApiHelper.Put(experience.ExperienceId, jsonExperience);
     }
 
     public static void Delete(int id)
     {
-      var apiCallTask = ApiHelper.Delete(id);
+      var apiCallTask = ExperienceApiHelper.Delete(id);
     }
   }
 }

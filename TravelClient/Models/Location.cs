@@ -3,7 +3,7 @@ using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace TravelRating.Models
+namespace TravelClient.Models
 {
   public class Location
   {
@@ -21,7 +21,7 @@ namespace TravelRating.Models
 
     public static List<Location> GetLocations()
     {
-      var apiCallTask = ApiHelper.GetAll();
+      var apiCallTask = LocationApiHelper.GetAll();
       var result = apiCallTask.Result;
 
       JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
@@ -30,21 +30,32 @@ namespace TravelRating.Models
       return locationList;
     }
 
+    public static Location GetDetails(int id)
+    {
+      var apiCallTask = LocationApiHelper.Get(id);
+      var result = apiCallTask.Result;
+
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      Location location = JsonConvert.DeserializeObject<Location>(jsonResponse.ToString());
+
+      return location;
+    }
+
     public static void Post(Location location)
     {
       string jsonLocation = JsonConvert.SerializeObject(location);
-      var apiCallTask = ApiHelper.Post(jsonLocation);
+      var apiCallTask = LocationApiHelper.Post(jsonLocation);
     }
 
     public static void Put(Location location)
     {
       string jsonLocation = JsonConvert.SerializeObject(location);
-      var apiCallTask = ApiHelper.Put(location.LocationId, jsonLocation);
+      var apiCallTask = LocationApiHelper.Put(location.LocationId, jsonLocation);
     }
 
     public static void Delete(int id)
     {
-      var apiCallTask = ApiHelper.Delete(id);
+      var apiCallTask = LocationApiHelper.Delete(id);
     }
   }
 }
