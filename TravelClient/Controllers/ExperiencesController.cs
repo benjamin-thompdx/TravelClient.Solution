@@ -12,7 +12,7 @@ namespace TravelClient.Controllers
   {
     public IActionResult Index()
     {
-      var allExperiences = Experience.GetExperiences();
+      var allExperiences = Experience.Get();
       return View(allExperiences);
     }
 
@@ -39,7 +39,7 @@ namespace TravelClient.Controllers
     public IActionResult Details(int id, Experience experience)
     {
       experience.ExperienceId = id;
-      Experience.Put(Experience);
+      Experience.Put(experience);
       return RedirectToAction("Details", id);
     }
 
