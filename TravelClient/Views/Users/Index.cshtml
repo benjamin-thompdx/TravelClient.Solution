@@ -1,0 +1,25 @@
+<h1>Sign In:</h1>
+
+<ol>
+@foreach (Location location in Model)
+{
+  <ul>
+    <li>ID: @location.LocationId</li>
+    <li>Name: @location.Name</li>
+    <li>City: @location.City</li>
+    <li>Country: @location.Country</li>
+    <li>Experiences:</li>
+    <ul>
+      @foreach (Experience experience in @location.Experiences)
+      {
+        <li>@experience.Review</li> 
+      }
+    </ul>
+    
+  </ul>
+  <a href="/Locations/Details/@(location.LocationId)"><p>View Details</p></a>
+  <br>
+}
+</ol>
+
+<p>@Html.ActionLink("Add new location", "Create")</p>

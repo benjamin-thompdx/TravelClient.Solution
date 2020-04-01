@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TravelClient.Models.User
+@using TravelClient.Models;
+
+<h1>Register New</h1>
+@using (Html.BeginForm())
+{
+  @Html.Label("First Name:")
+  @Html.TextBoxFor(model => model.Name, new { @required="required"})
+  @Html.Label("City:")
+  @Html.TextBoxFor(model => model.City, new { @required="required"})
+  @Html.Label("Country:")
+  @Html.TextBoxFor(model => model.Country, new { @required="required"})
+  <br>
+  <input type="submit" value="Add this location" class="btn"/>
+}

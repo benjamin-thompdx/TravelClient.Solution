@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Details";
+}
+
+@model TravelClient.Models.Location
+
+<h1>@Model.Name Details</h1>
+<ul>
+  <li>ID: @Model.LocationId</li>
+  <li>City: @Model.City</li>
+  <li>Country: @Model.Country</li>
+  <li>Experiences:</li>
+  <ul>
+    @foreach (Experience experience in @Model.Experiences)
+    {
+      <li>@experience.Review</li> 
+    }
+  </ul>   
+</ul>
+<a href="/Locations/Edit/@(Model.LocationId)"><p>Edit This Location</p></a>
+
+<p>@Html.ActionLink("Delete Location", "Delete", new { id = Model.LocationId })</p>
