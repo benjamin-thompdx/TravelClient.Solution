@@ -18,3 +18,7 @@
   </ul>   
 </ul>
 <a href="/Locations/Edit/@(Model.LocationId)"><p>Edit This Location</p></a>
+<a href="/Locations/Delete"><p>Delete This Location</p></a>
+
+
+<p>@Html.ActionLink("Delete Location", "Delete", new { id = Model.LocationId })</p>

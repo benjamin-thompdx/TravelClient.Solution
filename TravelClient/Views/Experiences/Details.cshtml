@@ -12,4 +12,5 @@
 
 <a href="/Experiences/Edit/@(Model.ExperienceId)">Edit this entry</a>
 <br>
-<a href="/Experiences/Delete/@(Model.ExperienceId)">Delete this entry</a>
+
+<p>@Html.ActionLink("Delete this entry", "Delete", new { id = Model.ExperienceId })</p>
