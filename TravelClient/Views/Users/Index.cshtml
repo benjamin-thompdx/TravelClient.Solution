@@ -1,25 +1,18 @@
-<h1>Sign In:</h1>
-
-<ol>
-@foreach (Location location in Model)
-{
-  <ul>
-    <li>ID: @location.LocationId</li>
-    <li>Name: @location.Name</li>
-    <li>City: @location.City</li>
-    <li>Country: @location.Country</li>
-    <li>Experiences:</li>
-    <ul>
-      @foreach (Experience experience in @location.Experiences)
-      {
-        <li>@experience.Review</li> 
-      }
-    </ul>
-    
-  </ul>
-  <a href="/Locations/Details/@(location.LocationId)"><p>View Details</p></a>
-  <br>
+@{
+  Layout = "_Layout";
 }
-</ol>
 
-<p>@Html.ActionLink("Add new location", "Create")</p>
+@model TravelClient.Models.MyUser
+@using TravelClient.Models;
+
+<h1>Sign In</h1>
+@using (Html.BeginForm())
+{
+  @Html.Label("Username:")
+  @Html.TextBoxFor(model => model.MyUsername, new { @required="required"})
+  @Html.Label("Password:")
+  @Html.TextBoxFor(model => model.Password, new { @required="required"})
+
+  <br>
+  <input type="submit" value="Sign In" class="btn"/>
+}

@@ -2,8 +2,8 @@
     ViewData["Title"] = "Details";
 }
 
-@model TravelClient.Models.Location
+@model TravelClient.Models.MyUser
 
-<h1>Are you sure you want to delete @Model.Name and all it's details?</h1>
+<h1>Are you sure you want to delete @Model.MyUsername and all it's details?</h1>
 
-<a href="/Locations/Delete/@(Model.LocationId)"><p>Delete This Location</p></a>
+<a href="/Locations/Delete/@(Model.MyUserId)"><p>Delete This User</p></a>

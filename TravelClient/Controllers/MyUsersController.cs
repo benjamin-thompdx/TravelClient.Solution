@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TravelClient.Models;
 
+
 namespace TravelClient.Controllers
 {
-  public class UsersController : Controller
+  public class MyUsersController : Controller
   {
     public IActionResult Index()
     {
-      var allUsers = User.GetUsers();
-      return View(allUsers);
+      return View();
     }
 
     [HttpPost]
-    public IActionResult Index(Use user)
+    public IActionResult Index(MyUser myUser)
     {
-      Use.Post(user);
+      MyUser.Post(myUser);
       return RedirectToAction("Index");
     }
 
@@ -29,42 +29,42 @@ namespace TravelClient.Controllers
     }
 
     [HttpPost]
-    public IActionResult Create(User user)
+    public IActionResult Create(MyUser myUser)
     {
-      User.Post(user);
+      MyUser.Post(myUser);
       return RedirectToAction("Index");
     }
 
     public IActionResult Details(int id)
     {
-      var user = User.GetDetails(id);
-      return View(user);
+      var myUser = MyUser.GetDetails(id);
+      return View(myUser);
     }
 
     public IActionResult Edit(int id)
     {
-      var user = User.GetDetails(id);
-      return View(user);
+      var myUser = MyUser.GetDetails(id);
+      return View(myUser);
     }
 
     [HttpPost]
-    public IActionResult Details(int id, user user)
+    public IActionResult Details(int id, MyUser myUser)
     {
-      user.UserId = id;
-      User.Put(user);
+      myUser.MyUserId = id;
+      MyUser.Put(myUser);
       return RedirectToAction("Details", id);
     }
 
-    public IActionResult Delete(int id, User user)
+    public IActionResult Delete(int id, MyUser myUser)
     {
-      user.UserId = id;
-      return View(user);
+      myUser.MyUserId = id;
+      return View(myUser);
     }
 
     [HttpPost]
     public IActionResult Delete(int id)
     {
-      user.Delete(id);
+      MyUser.Delete(id);
       return RedirectToAction("Index");
     }
   }

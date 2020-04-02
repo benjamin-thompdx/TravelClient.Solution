@@ -2,18 +2,22 @@
   Layout = "_Layout";
 }
 
-@model TravelClient.Models.User
+@model TravelClient.Models.MyUser
 @using TravelClient.Models;
 
-<h1>Register New</h1>
+<h1>Register New User</h1>
 @using (Html.BeginForm())
 {
   @Html.Label("First Name:")
-  @Html.TextBoxFor(model => model.Name, new { @required="required"})
-  @Html.Label("City:")
-  @Html.TextBoxFor(model => model.City, new { @required="required"})
-  @Html.Label("Country:")
-  @Html.TextBoxFor(model => model.Country, new { @required="required"})
+  @Html.TextBoxFor(model => model.FirstName, new { @required="required"})
+  @Html.Label("Last Name:")
+  @Html.TextBoxFor(model => model.LastName, new { @required="required"})
+  @Html.Label("Username:")
+  @Html.TextBoxFor(model => model.MyUsername, new { @required="required"})
+  @Html.Label("Password:")
+  @Html.TextBoxFor(model => model.Password, new { @required="required"})
+  @Html.Label("Confirm Password:")
+  @Html.TextBoxFor(model => model.Password2, new { @required="required"})
   <br>
   <input type="submit" value="Add this location" class="btn"/>
 }

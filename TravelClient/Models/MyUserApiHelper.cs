@@ -1,9 +1,10 @@
 using System.Threading.Tasks;
 using RestSharp;
+// using System.Security.Claims;
 
 namespace TravelClient.Models
 {
-  class UserApiHelper
+  class MyUserApiHelper
   {
     public static async Task<string> GetAll()
     {
